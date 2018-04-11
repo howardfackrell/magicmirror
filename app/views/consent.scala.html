@@ -1,0 +1,11 @@
+@(userId: String, returnTo: String)
+
+@main("Agreement") {
+    <h1>@userId Please agree to these terms</h1>
+
+    <form method="post" action="@routes.ConsentController.received(userId)">
+        <input type="hidden" name="returnTo" value="@returnTo" />
+        <input type="submit" value="Agree" />
+        <button>Decline</button>
+    </form>
+}
