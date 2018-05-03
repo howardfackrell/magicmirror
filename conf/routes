@@ -27,4 +27,20 @@ GET     /consent/:userId/getConsent  controllers.ConsentController.getConsent(us
 +nocsrf
 POST    /consent/:userId/received    controllers.ConsentController.received(userId: String)
 
++nocsrf
+POST    /policy-sessions             controllers.PolicyController.createSession
+GET     /policy-sessions/:sessionToken  controllers.PolicyController.getSession(sessionToken:String)
+GET     /policy-sessions/:sessionToken/getSessionConsent    controllers.PolicyController.getSessionConsent(sessionToken:String)
++nocsrf
+POST    /policy-sessions/:sessionToken/consentReceived      controllers.PolicyController.consentReceived(sessionToken:String)
+
+GET     /api/yearbook/logins                                controllers.YearbookApiController.getLogins()
++nocsrf
+POST    /api/yearbook/logins                 controllers.YearbookApiController.createLogin()
+DELETE    /api/yearbook/:configuredPath/login               controllers.YearbookApiController.deleteLogin(configuredPath: String)
+
+
++nocsrf
+POST    /api/yearbook/:configuredPath/login                 controllers.YearbookApiController.getCredentials(configuredPath: String)
+
 

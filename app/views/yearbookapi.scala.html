@@ -1,0 +1,28 @@
+@(logins: Map[String, (String, String)])
+
+@main("yearbook api stand in") {
+
+    <h1>Logins set up for testing BOA SSO (sort of)</h1>
+
+    <table>
+        <thead>
+            <td>Configured Path</td>
+            <td>lastName</td>
+            <td>accessNumber</td>
+        </thead>
+        <tbody>
+        @for(entry <- logins) {
+            <td>@entry._1</td>
+            <td>@entry._2._1</td>
+            <td>@entry._2._2</td>
+        }
+        </tbody>
+    </table>
+
+    <form method="post" action="@routes.YearbookApiController.createLogin()" >
+        <input type="text" name="configuredPath" placeholder="configuredPath" />
+        <input type="text" name="userName" placeholder="userName" />
+        <input type="text" name="accessNumber" placeholder="accessNumber" />
+        <input type="submit">
+    </form>
+}

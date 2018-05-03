@@ -1,0 +1,10 @@
+@(sessionToken: String)
+
+@main("Agreement") {
+    <h1>@sessionToken Please agree to these terms:</h1>
+
+    <form method="post" action="@routes.PolicyController.consentReceived(sessionToken)">
+        <input type="submit" value="Agree" />
+        <button>Decline</button>
+    </form>
+}
