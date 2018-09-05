@@ -55,8 +55,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
         "body" -> body(request),
         "cookies" -> cookiesJson
       )
-
-      Thread.sleep(60000)
+      
       Ok(requestAsJson)
   }
 
