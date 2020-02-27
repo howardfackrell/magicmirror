@@ -17,6 +17,8 @@ PATCH    /request                    controllers.HomeController.request()
 HEAD     /request                    controllers.HomeController.request()
 OPTIONS  /request                    controllers.HomeController.request()
 
+GET     /externalApp                    controllers.HomeController.external()
+
 
 GET     /consent/:userId             controllers.ConsentController.needed(userId: String)
 +nocsrf

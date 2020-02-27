@@ -55,7 +55,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
         "body" -> body(request),
         "cookies" -> cookiesJson
       )
-      
+
       Ok(requestAsJson)
   }
 
@@ -99,5 +99,11 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
       .orElse(rawBody)
       .getOrElse(Json.obj("other" -> "not form, text, json, xml, or raw"))
 
+  }
+
+  def external = Action {
+    request =>
+
+      Ok("that worked");
   }
 }
