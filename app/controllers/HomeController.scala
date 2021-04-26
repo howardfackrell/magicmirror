@@ -56,6 +56,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
         "body" -> body(request),
         "cookies" -> cookiesJson
       )
+      println(Json.prettyPrint(requestAsJson))
 
       Ok(requestAsJson)
   }
