@@ -24,15 +24,15 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     Ok(views.html.index())
   }
 
-  def getRequest() = request
-  def postRequest() = request
-  def putRequest() = request
-  def patchRequest() = request
-  def deleteRequest() = request
-  def headRequest() = request
-  def optionsRequest() = request
+  def getRequest(path:String) = request(path)
+  def postRequest(path:String) = request(path)
+  def putRequest(path:String) = request(path)
+  def patchRequest(path:String) = request(path)
+  def deleteRequest(path:String) = request(path)
+  def headRequest(path:String) = request(path)
+  def optionsRequest(path:String) = request(path)
 
-  def request() = Action {
+  def request(path: String) = Action {
     implicit request: Request[AnyContent] =>
       val headersAsJs = request.headers.headers.map(e => (e._1 -> JsString(e._2)))
 
@@ -51,6 +51,7 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
       }
 
       val requestAsJson = Json.obj(
+        "path" -> ("/request/" + path),
         "headers" -> headersJson,
         "body" -> body(request),
         "cookies" -> cookiesJson

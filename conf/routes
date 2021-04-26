@@ -9,13 +9,13 @@ GET     /                           controllers.HomeController.index
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-GET      /request                    controllers.HomeController.request()
-POST     /request                    controllers.HomeController.request()
-PUT      /request                    controllers.HomeController.request()
-DELETE   /request                    controllers.HomeController.request()
-PATCH    /request                    controllers.HomeController.request()
-HEAD     /request                    controllers.HomeController.request()
-OPTIONS  /request                    controllers.HomeController.request()
+GET      /request/*path                    controllers.HomeController.request(path: String)
+POST     /request/*path                    controllers.HomeController.request(path: String)
+PUT      /request/*path                    controllers.HomeController.request(path: String)
+DELETE   /request/*path                    controllers.HomeController.request(path: String)
+PATCH    /request/*path                    controllers.HomeController.request(path: String)
+HEAD     /request/*path                    controllers.HomeController.request(path: String)
+OPTIONS  /request/*path                    controllers.HomeController.request(path: String)
 
 GET     /externalApp                    controllers.HomeController.external()
 
